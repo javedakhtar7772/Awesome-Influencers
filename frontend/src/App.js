@@ -7,6 +7,7 @@ import Login from "./components/main/Login";
 import Signup from "./components/main/Signup";
 import User from "./components/user";
 import UserProfile from "./components/user/UserProfile";
+import BrandLogin from "./components/main/brand_login";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="home" element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
+            <Route path="brandlogin" element={<BrandLogin />} />
 
           </Route>
           <Route path="user" element={<User />} >
