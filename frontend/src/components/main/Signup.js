@@ -35,7 +35,7 @@ const Signup = () => {
 
       console.log(res.status);
 
-      if (res.status === 200) {
+      if (res.status === 201) {
         Swal.fire({
           icon: "success",
           title: 'Success',
@@ -45,7 +45,7 @@ const Signup = () => {
 
       setSubmitting(false);
 
-      // resetForm();
+      resetForm();
       // },3000);
     },
     validationSchema: SignupSchema
@@ -68,7 +68,7 @@ const Signup = () => {
                   <h2 className="text-uppercase text-center mb-5">
                     Create an account
                   </h2>
-                  <form>
+                  <form onSubmit={signupForm.handleSubmit}>
                     <div className=" mb-4">
                       <label className="form-label" htmlFor="form3Example1cg">
                         Your Name
