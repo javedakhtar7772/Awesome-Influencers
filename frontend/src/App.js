@@ -8,30 +8,38 @@ import Signup from "./components/main/Signup";
 import User from "./components/user";
 import UserProfile from "./components/user/UserProfile";
 import BrandLogin from "./components/main/brand_login";
+import BrandSignup from "./components/main/brand_signup";
+import UserProvider from "./context/UserProvider";
+import { useState } from "react";
 
 
 function App() {
+
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+
   return (
     <div>
 
       <BrowserRouter>
+        <UserProvider currentUser={currentUser}>
+          <Routes>
+            <Route path="/" element={<Navigate to="/main/home" />} />
+            <Route path="main" element={<Main />} >
+              <Route path="home" element={<Home />} />
+              <Route path="login" element={<Login />} />
+              <Route path="signup" element={<Signup />} />
+              <Route path="brandlogin" element={<BrandLogin />} />
+              <Route path="brandsignup" element={<BrandSignup />} />
 
-        <Routes>
-          <Route path="/" element={<Navigate to="/main/home" />} />
-          <Route path="main" element={<Main />} >
-            <Route path="home" element={<Home />} />
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="brandlogin" element={<BrandLogin />} />
+            </Route>
+            <Route path="user" element={<User />} >
+              <Route path="login" element={<Login />} />
+              <Route path="userprofile" element={<UserProfile />} />
 
-          </Route>
-          <Route path="user" element={<User />} >
-            <Route path="login" element={<Login />} />
-            <Route path="userprofile" element={<UserProfile />} />
+            </Route>
 
-          </Route>
-
-        </Routes>
+          </Routes>
+          </UserProvider>
       </BrowserRouter>
 
     </div>
