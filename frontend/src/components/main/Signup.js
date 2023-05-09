@@ -121,7 +121,7 @@ const Signup = () => {
                       />
 
                     </div>
-                    {/* <div className="form-check d-flex justify-content-center mb-5">
+                    { <div className="form-check d-flex justify-content-center mb-5">
                       <input
                         className="form-check-input me-2"
                         type="checkbox"
@@ -134,7 +134,7 @@ const Signup = () => {
                           <u>Terms of service</u>
                         </a>
                       </label>
-                    </div> */}
+                    </div> }
                     <div className="d-flex justify-content-center">
                       <button type="submit" className="btn btn-primary btn-lg" disabled={signupForm.isSubmitting} >
                         {signupForm.isSubmitting ? <span className="spinner-border spinner-border-sm"></span> : null}
