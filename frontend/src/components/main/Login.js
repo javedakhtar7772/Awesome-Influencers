@@ -42,7 +42,7 @@ const Login = () => {
     }
     else {
       Swal.fire({
-        iicon: 'error',
+        icon: 'error',
         title: 'Error',
         text: 'Something went wrong'
       })

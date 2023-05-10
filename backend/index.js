@@ -1,12 +1,17 @@
 const express = require('express');
-const app = express();
-const port = 5000;
-
 const userRouter = require('./routers/userRouter');
 const brandRouter = require('./routers/brandRouter');
 
-
 const cors = require('cors');
+
+
+
+
+const app = express();
+const port = 5000;
+
+
+
 
 // to allow client to make request
 app.use( cors({ origin: 'http://localhost:3000' }) )
