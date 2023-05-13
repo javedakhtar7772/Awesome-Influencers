@@ -23,9 +23,8 @@ function App() {
       <BrowserRouter>
         <UserProvider currentUser={currentUser}>
           <Routes>
-            <Route path="/" element={<Navigate to="/main/home" />} />
+            <Route path="/" element={<Navigate to="/home" />} />
             <Route path="main" element={<Main />} >
-              <Route path="home" element={<Home />} />
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<Signup />} />
               <Route path="brandlogin" element={<BrandLogin />} />
@@ -37,6 +36,7 @@ function App() {
               <Route path="userprofile" element={<UserProfile />} />
 
             </Route>
+              <Route path="home" element={<Home />} />
 
           </Routes>
           </UserProvider>
