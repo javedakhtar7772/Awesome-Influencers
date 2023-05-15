@@ -1,8 +1,11 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 const Brand = () => {
   return (
-    <div>Brand</div>
+    <div>
+      <Outlet />
+    </div>
   )
 }
 

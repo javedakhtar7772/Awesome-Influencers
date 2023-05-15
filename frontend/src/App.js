@@ -32,7 +32,6 @@ function App() {
             <Route path="/" element={<Navigate to="/home" />} />
 
             <Route path="main" element={<Main />} >
-              <Route path="home" element={<Home />} />
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<Signup />} />
               <Route path="brandlogin" element={<BrandLogin />} />
@@ -42,16 +41,16 @@ function App() {
             </Route>
 
             <Route path="user" element={<User />} >
-              <Route path="login" element={<Login />} />
               <Route path="userprofile" element={<UserProfile />} />
               <Route path="enroll" element={<Enroll />} />
             </Route>
 
-            <Route path='brand' element={<Brand/>}>
-              <Route element={<AddJob />} to='add_job' />
-              <Route element={<ManageJobs />} to='manage_jobs' />
+            <Route path='brand' element={<Brand />}>
+              <Route element={<AddJob />} path='addjob' />
+              <Route element={<ManageJobs />} path='managejob' />
             </Route>
 
+            <Route path="home" element={<Home />} />
 
           </Routes>
         </UserProvider>

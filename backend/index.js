@@ -23,7 +23,7 @@ app.use(express.json());
 
 app.use('/user', userRouter);   
 app.use('/brand', brandRouter);   
-app.use('/jobs', jobRouter);   
+app.use('/job', jobRouter);   
 app.use('/enrollment', enrollMentRouter);   
 
 app.get('/', (req, res) => {
