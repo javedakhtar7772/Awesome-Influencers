@@ -20,27 +20,32 @@ const Home = () => {
       </a>
       <div className="nav-links">
         <ul>
-          {/* <i class="fa fa-times"></i> */}
-          <li>
-            <a href="">HOME</a>
-          </li>
-          <li>
-            <NavLink to="">ABOUT</NavLink>
-          </li>
-          <li>
-            <NavLink to="/course.html">COURSE</NavLink>
-          </li>
-          <li>
-            <NavLink to="">BLOG</NavLink>
-          </li>
-          <li>
-            <NavLink to="">CONTACT</NavLink>
-          </li>
-          <li>
-            <NavLink to="/login.html">LOGIN</NavLink>
-          </li>
-          
-        </ul>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/main/home">
+                    Home
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/main/signup">
+                    Signup
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/main/login">
+                    Login
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/main/brandsignup">
+                    Brand Signup
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/main/brandlogin">
+                    Brand Login
+                  </NavLink>
+                </li>
+              </ul>
       </div>
       {/* <i class="fa fa-bars" aria-hidden="true"></i> */}
     </nav>

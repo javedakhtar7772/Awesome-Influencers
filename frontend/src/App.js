@@ -11,6 +11,12 @@ import BrandLogin from "./components/main/brand_login";
 import BrandSignup from "./components/main/brand_signup";
 import UserProvider from "./context/UserProvider";
 import { useState } from "react";
+import JobDetails from "./components/main/JobDetails";
+import BrowseJobs from "./components/main/BrowseJobs";
+import Enroll from "./components/user/Enroll";
+import Brand from "./components/brand";
+import ManageJobs from './components/brand/ManageJobs'
+import AddJob from "./components/brand/AddJob";
 
 
 function App() {
@@ -24,22 +30,31 @@ function App() {
         <UserProvider currentUser={currentUser}>
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />
+
             <Route path="main" element={<Main />} >
+              <Route path="home" element={<Home />} />
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<Signup />} />
               <Route path="brandlogin" element={<BrandLogin />} />
               <Route path="brandsignup" element={<BrandSignup />} />
-
+              <Route path="job_details" element={<JobDetails />} />
+              <Route path="browse_jobs" element={<BrowseJobs />} />
             </Route>
+
             <Route path="user" element={<User />} >
               <Route path="login" element={<Login />} />
               <Route path="userprofile" element={<UserProfile />} />
-
+              <Route path="enroll" element={<Enroll />} />
             </Route>
-              <Route path="home" element={<Home />} />
+
+            <Route path='brand' element={<Brand/>}>
+              <Route element={<AddJob />} to='add_job' />
+              <Route element={<ManageJobs />} to='manage_jobs' />
+            </Route>
+
 
           </Routes>
-          </UserProvider>
+        </UserProvider>
       </BrowserRouter>
 
     </div>

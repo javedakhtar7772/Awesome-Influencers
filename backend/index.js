@@ -1,6 +1,9 @@
 const express = require('express');
 const userRouter = require('./routers/userRouter');
 const brandRouter = require('./routers/brandRouter');
+const enrollMentRouter = require('./routers/enrollMentRouter');
+const jobRouter = require('./routers/jobRouter');
+
 
 const cors = require('cors');
 
@@ -20,6 +23,8 @@ app.use(express.json());
 
 app.use('/user', userRouter);   
 app.use('/brand', brandRouter);   
+app.use('/jobs', jobRouter);   
+app.use('/enrollment', enrollMentRouter);   
 
 app.get('/', (req, res) => {
     res.send('Working Fine');
