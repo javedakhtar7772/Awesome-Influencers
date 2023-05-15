@@ -1,6 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-import {NavLink} from "react-router-dom"
+import {Link, NavLink} from "react-router-dom"
 
 import './home.css';
 import "swiper/css";
@@ -13,10 +13,10 @@ const Home = () => {
   return (
     <>
     <>
-  <section className="header" style={{backgroundImage: "linear-gradient(rgba(4,9,30,0.8),rgba(4,9,30,0.8)), url(/banner2.jpg)"}}>
+  <section className="header" style={{backgroundImage: "linear-gradient(rgba(4,9,30,0.8),rgba(4,9,30,0.8)), url(/Images/banner2.jpg)"}}>
     <nav>
       <a href="index.html">
-        <img src="/logo12.png" width={100} />
+        <img src="/Images/logo12.png" width={100} />
       </a>
       <div className="nav-links">
         <ul>
@@ -56,10 +56,10 @@ const Home = () => {
         fact, the most influential people in my life are probably not even aware
         of the things they’ve taught me.”{" "}
       </p>
-      <a className="hero-btn" href="/login.html">
+      <a className="hero-btn" href="/index.html">
         Influencer
       </a>
-      <a className="hero-btn" href="/login.html">
+      <a className="hero-btn" href="/index.htnl">
         Brand
       </a>
     </div>
@@ -128,7 +128,7 @@ const Home = () => {
           of course, you have to consider the price tag"
         </h5>
       </div>
-      <img className="choose-img" src="/about.jpg" />
+      <img className="choose-img" src="/Images/about.jpg" />
     </div>
   </section>
 
@@ -153,7 +153,7 @@ const Home = () => {
           <div className="card-body">
 
           <div className="img">
-            <img className='d-block m-auto' src="shamim (2).jpg" alt="img" draggable="false" />
+            <img className='d-block m-auto' src="/Images/shamim (2).jpg" alt="img" draggable="false" />
           </div>
           <h2 className='text-center'>Mohd Shamim</h2>
           <p className='text-center'>Web Developer</p>
@@ -165,7 +165,7 @@ const Home = () => {
           <div className="card-body">
 
           <div className="img">
-            <img className='d-block m-auto' src="img-2.jpg" alt="img" draggable="false" />
+            <img className='d-block m-auto' src="/Images/img-2.jpg" alt="img" draggable="false" />
           </div>
           <h2 className='text-center'>Joenas Brauers</h2>
           <p className='text-center'>Web Developer</p>
@@ -177,7 +177,7 @@ const Home = () => {
           <div className="card-body">
 
           <div className="img">
-            <img className='d-block m-auto' src="img-3.jpg" alt="img" draggable="false" />
+            <img className='d-block m-auto' src="/Images/img-3.jpg" alt="img" draggable="false" />
           </div>
           <h2 className='text-center'>Lariach French</h2>
           <p className='text-center'>Web Developer</p>
@@ -189,7 +189,7 @@ const Home = () => {
           <div className="card-body">
 
           <div className="img">
-            <img className='d-block m-auto' src="img-4.jpg" alt="img" draggable="false" />
+            <img className='d-block m-auto' src="/Images/img-4.jpg" alt="img" draggable="false" />
           </div>
           <h2 className='text-center'>Mohd Shamim</h2>
           <p className='text-center'>Web Developer</p>
@@ -201,7 +201,7 @@ const Home = () => {
           <div className="card-body">
 
           <div className="img">
-            <img className='d-block m-auto' src="img-5.jpg" alt="img" draggable="false" />
+            <img className='d-block m-auto' src="/Images/img-5.jpg" alt="img" draggable="false" />
           </div>
           <h2 className='text-center'>Kristina Zasiadko</h2>
           <p className='text-center'>Web Developer</p>
@@ -213,7 +213,7 @@ const Home = () => {
           <div className="card-body">
 
           <div className="img">
-            <img className='d-block m-auto' src="img-6.jpg" alt="img" draggable="false" />
+            <img className='d-block m-auto' src="/Images/img-6.jpg" alt="img" draggable="false" />
           </div>
           <h2 className='text-center'>Donald Horton</h2>
           <p className='text-center'>Web Developer</p>
