@@ -27,8 +27,7 @@ const ManageJobs = () => {
           const job = jobList.find(job => job._id === selJob);
           setSelJobDetails(job);
       }
-  }, [selJob, jobList
-  ])
+  }, [selJob, jobList])
   
 
   const getUserJobs = async () => {
@@ -85,7 +84,7 @@ const ManageJobs = () => {
   }
 
   const displaySelJob = () => {
-      if(selJob !==null ){
+      if(selJob !==null && selJobDetails !==null ){
         return (
           <div className="card">
             <div className="card-header">
@@ -108,6 +107,8 @@ const ManageJobs = () => {
             </div>
           </div>
         )
+      }else{
+        return <p className="display-3 text-center text-muted">Select a Job to View Details</p>
       }
   }
 

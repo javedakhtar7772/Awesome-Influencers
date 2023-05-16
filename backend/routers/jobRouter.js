@@ -58,7 +58,7 @@ router.get("/getall", (req, res) => {
 });
 
 router.get("/getbyid/:id", (req, res) => {
-  Model.findById(req.params.id)
+  Model.findById(req.params.id).populate('brand')
     .then((result) => {
       console.log("User Data Retrieved");
       res.status(200).json({ status: "success", result });

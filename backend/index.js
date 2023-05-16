@@ -24,7 +24,7 @@ app.use(express.json());
 app.use('/user', userRouter);   
 app.use('/brand', brandRouter);   
 app.use('/job', jobRouter);   
-app.use('/enrollment', enrollMentRouter);   
+app.use('/enroll', enrollMentRouter);   
 
 app.get('/', (req, res) => {
     res.send('Working Fine');

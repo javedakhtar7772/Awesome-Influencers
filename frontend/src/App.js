@@ -36,8 +36,8 @@ function App() {
               <Route path="signup" element={<Signup />} />
               <Route path="brandlogin" element={<BrandLogin />} />
               <Route path="brandsignup" element={<BrandSignup />} />
-              <Route path="job_details" element={<JobDetails />} />
-              <Route path="browse_jobs" element={<BrowseJobs />} />
+              <Route path="jobdetails/:jobid" element={<JobDetails />} />
+              <Route path="browsejobs" element={<BrowseJobs />} />
             </Route>
 
             <Route path="user" element={<User />} >

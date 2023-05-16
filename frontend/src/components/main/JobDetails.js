@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import app_config from "../../config";
+import Swal from "sweetalert2";
 
 const JobDetails = () => {
   const { jobid } = useParams();
@@ -45,6 +46,7 @@ const JobDetails = () => {
   };
 
   const enrollToJob = async () => {
+    console.log('enrolling');
     const res = await fetch(apiUrl + "/enroll/add/", {
       method: "POST",
       body: JSON.stringify({
@@ -57,8 +59,13 @@ const JobDetails = () => {
         "Content-Type": "application/json",
       },
     });
-    if (res.status === 200) {
+    console.log(res.status);
+    if (res.status === 201) {
       const { result } = await res.json();
+      console.log(result);
+      Swal.fire({
+        icon : 'success'
+      })
       setJobDetails(result);
     }
   };

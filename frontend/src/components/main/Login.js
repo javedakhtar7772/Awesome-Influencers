@@ -31,7 +31,7 @@ const Login = () => {
       console.log(data);
       sessionStorage.setItem('user', JSON.stringify(data));
 
-      // navigate('/pro_entry');
+      navigate('/main/browsejobs');
     }
     else if (res.status === 401) {
       Swal.fire({

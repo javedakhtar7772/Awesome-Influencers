@@ -11,7 +11,7 @@ const UserProfile = () => {
   const url = app_config.apiUrl;
   const {themeColorLight} = app_config;
   const [passwordHidden, setPasswordHidden] = useState(true);
-
+  
   const updateProfile = async (data) => {
     console.log(data);
     const res = await fetch(url + "/user/update/"+currentUser._id, {
