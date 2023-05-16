@@ -53,22 +53,19 @@ const Signup = () => {
 
   return (
     <section
-      className="vh-100 bg-image"
-      style={{
-        backgroundImage:
-          'url("https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp")'
-      }}
+      className="bg-image"
     >
-      <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div className="container h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
+      <img src="/images/signBg.jpeg" style={{ width:"100%"}}></img>
+      <div className="mask d-flex align-items-center gradient-custom-3 signIp">
+        <div className="container h-auto">
+          <div className="row d-flex justify-content-center align-items-center ">
             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-              <div className="card" style={{ borderRadius: 15 }}>
+              <div className="card signForm" >
                 <div className="card-body p-5">
-                  <h2 className="text-uppercase text-center mb-5">
-                    Create an account
+                  <h2 className="text-uppercase text-center mb-5 text-light fw-bold">
+                    Sign up
                   </h2>
-                  <form onSubmit={signupForm.handleSubmit}>
+                  <form onSubmit={signupForm.handleSubmit} className="signFormm">
                     <div className=" mb-4">
                       <label className="form-label" htmlFor="form3Example1cg">
                         Your Name
@@ -130,20 +127,20 @@ const Signup = () => {
                       />
                       <label className="form-check-label" htmlFor="form2Example3g">
                         I agree all statements in{" "}
-                        <a href="#!" className="text-body">
+                        <a href="#!" className="text-primary">
                           <u>Terms of service</u>
                         </a>
                       </label>
                     </div> }
                     <div className="d-flex justify-content-center">
-                      <button type="submit" className="btn btn-primary btn-lg" disabled={signupForm.isSubmitting} >
+                      <button type="submit" className="btn btn-lg signbtn" disabled={signupForm.isSubmitting} >
                         {signupForm.isSubmitting ? <span className="spinner-border spinner-border-sm"></span> : null}
-                        &nbsp;&nbsp;REGISTER
+                        &nbsp;&nbsp;SIGN UP
                       </button>
                     </div>
-                    <p className="text-center text-muted mt-5 mb-0">
+                    <p className="text-center  text-light mt-5 mb-0">
                       Have already an account?{" "}
-                      <a href="#!" className="fw-bold text-body">
+                      <a href="#!" className="fw-bold text-primary">
                         <u>Login here</u>
                       </a>
                     </p>
