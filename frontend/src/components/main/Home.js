@@ -56,7 +56,7 @@ const Home = () => {
               fact, the most influential people in my life are probably not even aware
               of the things they’ve taught me.”{" "}
             </p>
-            <NavLink className="hero-btn" to="/main/signup">
+            <NavLink className="hero-btn" to="/main/signup.">
               Influencer
             </NavLink>
             <a className="hero-btn" href="/index.htnl">
