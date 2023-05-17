@@ -45,6 +45,32 @@ const JobDetails = () => {
     return jobDetails.enrolled.includes(currentUser._id);
   };
 
+  const updateJob = async () => {
+    const res = await fetch(apiUrl + '/job/pushupdate/' + jobDetails._id, {
+      method: 'PUT',
+      body: JSON.stringify({
+        enrolled: currentUser._id
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (res.status === 200) {
+      const data = await res.json();
+      console.log(data);
+      setJobDetails(data.result);
+      Swal.fire({
+        icon: 'success'
+      })
+    } else {
+      Swal.fire({
+        icon: 'error'
+      })
+    }
+
+  }
+
   const enrollToJob = async () => {
     console.log('enrolling');
     const res = await fetch(apiUrl + "/enroll/add/", {
@@ -64,9 +90,10 @@ const JobDetails = () => {
       const { result } = await res.json();
       console.log(result);
       Swal.fire({
-        icon : 'success'
+        icon: 'success'
       })
-      setJobDetails(result);
+      updateJob();
+      // setJobDetails(result);
     }
   };
 

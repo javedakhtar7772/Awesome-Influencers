@@ -1,12 +1,13 @@
 import { useFormik } from "formik";
 import React from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as Yup from 'yup';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
-    .max(10, 'Too Long!')
+    .max(20, 'Too Long!')
     .required('Name is Required'),
   email: Yup.string().email('Invalid email').required('Email is Required'),
   password: Yup.string().required('Password is Required'),
@@ -80,6 +81,7 @@ const Signup = () => {
                         onChange={signupForm.handleChange}
                         value={signupForm.values.name}
                       />
+                      <span className="text-danger text-small">{signupForm.errors.name}</span>
                     </div>
                     <div className=" mb-4">
                       <label className="form-label" htmlFor="form3Example3cg">
@@ -92,7 +94,7 @@ const Signup = () => {
                         onChange={signupForm.handleChange}
                         value={signupForm.values.email}
                       />
-
+                      <span className="text-danger text-small">{signupForm.errors.email}</span>
                     </div>
                     <div className=" mb-4">
                       <label className="form-label" htmlFor="form3Example4cg">
@@ -105,7 +107,7 @@ const Signup = () => {
                         onChange={signupForm.handleChange}
                         value={signupForm.values.password}
                       />
-
+                      <span className="text-danger text-small">{signupForm.errors.password}</span>
                     </div>
                     <div className=" mb-4">
                       <label className="form-label" htmlFor="form3Example4cdg">
@@ -121,7 +123,7 @@ const Signup = () => {
                       />
 
                     </div>
-                    { <div className="form-check d-flex justify-content-center mb-5">
+                    {<div className="form-check d-flex justify-content-center mb-5">
                       <input
                         className="form-check-input me-2"
                         type="checkbox"
@@ -134,7 +136,7 @@ const Signup = () => {
                           <u>Terms of service</u>
                         </a>
                       </label>
-                    </div> }
+                    </div>}
                     <div className="d-flex justify-content-center">
                       <button type="submit" className="btn btn-primary btn-lg" disabled={signupForm.isSubmitting} >
                         {signupForm.isSubmitting ? <span className="spinner-border spinner-border-sm"></span> : null}
@@ -143,9 +145,9 @@ const Signup = () => {
                     </div>
                     <p className="text-center text-muted mt-5 mb-0">
                       Have already an account?{" "}
-                      <a href="#!" className="fw-bold text-body">
+                      <Link to="/main/login" className="fw-bold text-body">
                         <u>Login here</u>
-                      </a>
+                      </Link>
                     </p>
                   </form>
                 </div>

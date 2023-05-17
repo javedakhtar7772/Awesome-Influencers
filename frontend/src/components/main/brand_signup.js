@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React from "react";
 import app_config from "../../config";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const BrandSignup = () => {
@@ -153,6 +153,12 @@ const BrandSignup = () => {
                             Register
                           </button>
                         </div>
+                        <p className="text-center text-muted mt-5 mb-0">
+                      Have already an account?{" "}
+                      <Link to="/main/brandlogin" className="fw-bold text-body">
+                        <u>Login here</u>
+                      </Link>
+                    </p>
                       </form>
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
