@@ -28,8 +28,8 @@ const Navbar = () => {
               <a className="navbar-brand mt-2 mt-lg-0" href="#">
                 <img
                   src="/Images/social-media.png"
-                  height={20}
-                  width={2}
+                  height={30}
+                  width={30}
                   alt="Logo"
                   loading="lazy"
                 />
@@ -37,7 +37,7 @@ const Navbar = () => {
               {/* Left links */}
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/main/home">
+                  <NavLink className="nav-link" to="/home">
                     Home
                   </NavLink>
                 </li>
@@ -68,12 +68,12 @@ const Navbar = () => {
             {/* Right elements */}
             <div className="d-flex align-items-center">
               {/* Icon */}
-              <a className="text-reset me-3" href="#">
+              {/* <a className="text-reset me-3" href="#">
                 <i className="fas fa-shopping-cart" />
-              </a>
+              </a> */}
               {/* Notifications */}
               <div className="dropdown">
-                <a
+                {/* <a
                   className="text-reset me-3 dropdown-toggle hidden-arrow"
                   href="#"
                   id="navbarDropdownMenuLink"
@@ -85,7 +85,7 @@ const Navbar = () => {
                   <span className="badge rounded-pill badge-notification bg-danger">
                     1
                   </span>
-                </a>
+                </a> */}
                 <ul
                   className="dropdown-menu dropdown-menu-end"
                   aria-labelledby="navbarDropdownMenuLink"

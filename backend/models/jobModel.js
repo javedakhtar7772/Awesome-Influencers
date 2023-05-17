@@ -11,6 +11,8 @@ const schema = new Schema({
   endDate: { type: Date },
   status: { type: String, default: "active" },
   enrolled : [{ type: Types.ObjectId, ref: "user" }],
+  requirements: {type : String, default: 'No Followers Required'},
+  notes: String,
   created_at: Date,
   updated_at: Date,
 });

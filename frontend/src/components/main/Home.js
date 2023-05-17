@@ -16,12 +16,12 @@ const Home = () => {
         <section className="header" style={{ backgroundImage: "linear-gradient(rgba(4,9,30,0.8),rgba(4,9,30,0.8)), url(/Images/banner2.jpg)" }}>
           <nav>
             <a href="index.html">
-              <img src="/Images/logo12.png" width={100} />
+              <img src="/Images/logo12.png" width={150} />
             </a>
             <div className="nav-links">
               <ul>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/main/home">
+                  <NavLink className="nav-link" to="/home">
                     Home
                   </NavLink>
                 </li>
@@ -56,12 +56,12 @@ const Home = () => {
               fact, the most influential people in my life are probably not even aware
               of the things they’ve taught me.”{" "}
             </p>
-            <NavLink className="hero-btn" to="/main/signup.">
+            <NavLink className="hero-btn" to="/main/signup">
               Influencer
             </NavLink>
-            <a className="hero-btn" href="/index.htnl">
+            <NavLink className="hero-btn" to="/main/brandsignup">
               Brand
-            </a>
+            </NavLink>
           </div>
         </section>
         <hr />
