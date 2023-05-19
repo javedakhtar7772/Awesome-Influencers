@@ -16,7 +16,7 @@ const Home = () => {
         <section className="header" style={{ backgroundImage: "linear-gradient(rgba(4,9,30,0.8),rgba(4,9,30,0.8)), url(/Images/banner2.jpg)" }}>
           <nav>
             <a href="index.html">
-              <img src="/Images/logo12.png" width={150} />
+              <img src="/Images/logo12.png" width={180} />
             </a>
             <div className="nav-links">
               <ul>

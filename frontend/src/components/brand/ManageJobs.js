@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import app_config from "../../config";
 import AddJob from "./AddJob";
+import ManageEnrolledUsers from "./ManageEnrolledUsers";
 
 const ManageJobs = () => {
   //   const { tour_id } = useParams();
@@ -76,6 +77,7 @@ const ManageJobs = () => {
       return (
         <div className="card">
           <div className="card-body">
+            <ManageEnrolledUsers jobId={selJob} />
             <h2>No Applicants</h2>
             </div>
             </div>

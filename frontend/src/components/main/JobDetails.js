@@ -55,6 +55,7 @@ const JobDetails = () => {
         'Content-Type': 'application/json'
       }
     });
+    console.log(res.status);
 
     if (res.status === 200) {
       const data = await res.json();
@@ -89,10 +90,10 @@ const JobDetails = () => {
     if (res.status === 201) {
       const { result } = await res.json();
       console.log(result);
-      Swal.fire({
-        icon: 'success'
-      })
-      updateJob();
+      // Swal.fire({
+      //   icon: 'success'
+      // })
+      await updateJob();
       // setJobDetails(result);
     }
   };

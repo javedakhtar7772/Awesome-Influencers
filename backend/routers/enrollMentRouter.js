@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/add", (req, res) => {
+  console.log(req.body);
   new Model(req.body)
     .save()
     .then((result) => {
@@ -82,6 +83,7 @@ router.get("/getbybrand/:id", (req, res) => {
 });
 
 router.put("/update/:id", (req, res) => {
+  
   Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((result) => {
       console.log("User Data Updated");
@@ -95,6 +97,17 @@ router.put("/update/:id", (req, res) => {
 
 router.get("/getbyuser/:id", (req, res) => {
   Model.find({user : req.params.id}).populate('job')
+    .then((result) => {
+      console.log("User Data Updated");
+      res.status(200).json({ status: "success", result });
+    })
+    .catch((err) => {
+      console.error("Error updating user data", err);
+      res.status(500).send("Error updating user data");
+    });
+});
+router.get("/getbyjob/:id", (req, res) => {
+  Model.find({job : req.params.id}).populate('user')
     .then((result) => {
       console.log("User Data Updated");
       res.status(200).json({ status: "success", result });

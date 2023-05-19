@@ -66,13 +66,14 @@ const AddJob = ({ refreshData }) => {
                 value={jobForm.values.title}
               />
               <label htmlFor="title">Description</label>
-              <input
+              <textarea
+              rows={4}
                 type="text"
                 className="form-control mb-3"
                 id="description"
                 onChange={jobForm.handleChange}
                 value={jobForm.values.description}
-              />
+              ></textarea>
               <label htmlFor="type">Type</label>
               <input
                 type="text"

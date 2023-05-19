@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/add", (req, res) => {
+  console.log(req.body);
   new Model(req.body)
     .save()
     .then((result) => {
@@ -94,6 +95,7 @@ router.get("/enroll/:userid", (req, res) => {
 });
 
 router.put("/update/:id", (req, res) => {
+  console.log(req.body);
   Model.findByIdAndUpdate(req.params.id, req.body, { new: true }).populate('brand')
     .then((result) => {
       console.log("User Data Updated");

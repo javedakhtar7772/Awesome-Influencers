@@ -65,8 +65,8 @@ const BrowseJobs = () => {
 
   const displaySpaceData = () => {
     if (!loading) {
-      return jobList.map((job, index) => (
-        <div className="card shadow-0 border rounded-3" key={job._id}>
+      return jobList.toReversed().map((job, index) => (
+        <div className="card shadow-0 border rounded-3 mb-3" key={job._id}>
             <div className="card-body">
             <div className="row justify-content-center mb-3" >
               <div className="col-md-8">
