@@ -47,12 +47,12 @@ const JobDetails = () => {
 
   const updateJob = async () => {
     const res = await fetch(apiUrl + '/job/pushupdate/' + jobDetails._id, {
-      method: 'PUT',
+      method: 'POST',
       body: JSON.stringify({
         enrolled: currentUser._id
       }),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       }
     });
     console.log(res.status);

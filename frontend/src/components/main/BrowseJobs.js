@@ -5,6 +5,8 @@ const BrowseJobs = () => {
   const [jobList, setJobList] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const [masterList, setMasterList] = useState([]);
+
   const categories = [
     "Promotion",
     "Photography",
@@ -26,6 +28,7 @@ const BrowseJobs = () => {
       console.log(data);
       setJobList(data.result);
       setLoading(false);
+      setMasterList(data.result);
     }
   };
 
@@ -55,13 +58,29 @@ const BrowseJobs = () => {
     ));
   };
 
+  const filterCampaigns = (e) => {
+    const val = e.target.value;
+
+    setJobList(masterList.filter((job) => job.title.toLowerCase().includes(val.toLowerCase())));
+  }
+
   useEffect(() => {
     fetchAllSpaceData();
   }, []);
 
   const checkApplicationOpen = (job) => {
-    return job.endDate > Date.now();
+    return ;
   };
+
+  const showValidityMessage = (job) => {
+    if(new Date(job.startDate) > Date.now()) {
+      return <span className="badge bg-warning">Applications starting on {new Date(job.startDate).toDateString()}</span>
+    }else if(new Date(job.endDate) > Date.now()){
+      return <span className="badge bg-success">Registration Open</span>
+    }else if(new Date(job.endDate) < Date.now()){
+      return <span className="badge bg-danger">Registration Closed</span>
+    }
+  }
 
   const displaySpaceData = () => {
     if (!loading) {
@@ -71,11 +90,7 @@ const BrowseJobs = () => {
             <div className="row justify-content-center mb-3" >
               <div className="col-md-8">
                 <div className="">
-                  {checkApplicationOpen(job) ? (
-                    <span className="badge bg-success">Registration Open</span>
-                  ) : (
-                    <span className="badge bg-danger">Registration Closed</span>
-                  )}
+                  {showValidityMessage(job)}
                   <div className="col-md-6 col-lg-6 col-xl-6">
                     <h3 className="mt-3">{job.title}</h3>
                     <h5>By : {job.brand.name}</h5>
@@ -128,7 +143,10 @@ const BrowseJobs = () => {
   return (
     <div>
       <header className="page-header">
-        <div className="container"></div>
+        <div className="container py-5">
+            <p className="display-3 fw-bold text-white">Find Campaigns</p>
+            <input className="form-control form-control-lg" onChange={filterCampaigns}  />
+        </div>
       </header>
       <div className="container-fluid">
         <div className="row my-3">
