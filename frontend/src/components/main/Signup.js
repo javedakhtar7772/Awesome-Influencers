@@ -1,13 +1,12 @@
 import { useFormik } from "formik";
 import React from "react";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as Yup from 'yup';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
-    .max(20, 'Too Long!')
+    .max(10, 'Too Long!')
     .required('Name is Required'),
   email: Yup.string().email('Invalid email').required('Email is Required'),
   password: Yup.string().required('Password is Required'),
@@ -54,22 +53,19 @@ const Signup = () => {
 
   return (
     <section
-      className="vh-100 bg-image"
-      style={{
-        backgroundImage:
-          'url("https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp")'
-      }}
+      className="bg-image"
     >
-      <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div className="container h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
+      <img src="/images/signBg.jpeg" style={{ width:"100%"}}></img>
+      <div className="mask d-flex align-items-center gradient-custom-3 signIp">
+        <div className="container h-auto">
+          <div className="row d-flex justify-content-center align-items-center ">
             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-              <div className="card" style={{ borderRadius: 15 }}>
+              <div className="card signForm" >
                 <div className="card-body p-5">
-                  <h2 className="text-uppercase text-center mb-5">
-                    Create an account
+                  <h2 className="text-uppercase text-center mb-5 text-light fw-bold">
+                    Sign up
                   </h2>
-                  <form onSubmit={signupForm.handleSubmit}>
+                  <form onSubmit={signupForm.handleSubmit} className="signFormm">
                     <div className=" mb-4">
                       <label className="form-label" htmlFor="form3Example1cg">
                         Your Name
@@ -81,7 +77,6 @@ const Signup = () => {
                         onChange={signupForm.handleChange}
                         value={signupForm.values.name}
                       />
-                      <span className="text-danger text-small">{signupForm.errors.name}</span>
                     </div>
                     <div className=" mb-4">
                       <label className="form-label" htmlFor="form3Example3cg">
@@ -94,7 +89,7 @@ const Signup = () => {
                         onChange={signupForm.handleChange}
                         value={signupForm.values.email}
                       />
-                      <span className="text-danger text-small">{signupForm.errors.email}</span>
+
                     </div>
                     <div className=" mb-4">
                       <label className="form-label" htmlFor="form3Example4cg">
@@ -107,7 +102,7 @@ const Signup = () => {
                         onChange={signupForm.handleChange}
                         value={signupForm.values.password}
                       />
-                      <span className="text-danger text-small">{signupForm.errors.password}</span>
+
                     </div>
                     <div className=" mb-4">
                       <label className="form-label" htmlFor="form3Example4cdg">
@@ -123,7 +118,7 @@ const Signup = () => {
                       />
 
                     </div>
-                    {<div className="form-check d-flex justify-content-center mb-5">
+                    { <div className="form-check d-flex justify-content-center mb-5">
                       <input
                         className="form-check-input me-2"
                         type="checkbox"
@@ -132,22 +127,22 @@ const Signup = () => {
                       />
                       <label className="form-check-label" htmlFor="form2Example3g">
                         I agree all statements in{" "}
-                        <a href="#!" className="text-body">
+                        <a href="#!" className="text-primary">
                           <u>Terms of service</u>
                         </a>
                       </label>
-                    </div>}
+                    </div> }
                     <div className="d-flex justify-content-center">
-                      <button type="submit" className="btn btn-primary btn-lg" disabled={signupForm.isSubmitting} >
+                      <button type="submit" className="btn btn-lg signbtn" disabled={signupForm.isSubmitting} >
                         {signupForm.isSubmitting ? <span className="spinner-border spinner-border-sm"></span> : null}
-                        &nbsp;&nbsp;REGISTER
+                        &nbsp;&nbsp;SIGN UP
                       </button>
                     </div>
-                    <p className="text-center text-muted mt-5 mb-0">
+                    <p className="text-center  text-light mt-5 mb-0">
                       Have already an account?{" "}
-                      <Link to="/main/login" className="fw-bold text-body">
+                      <a href="#!" className="fw-bold text-primary">
                         <u>Login here</u>
-                      </Link>
+                      </a>
                     </p>
                   </form>
                 </div>

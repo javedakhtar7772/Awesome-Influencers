@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.bg-image 
+{
+  height: 130vh;
+
+
+}
+
+.bg-image img
+{
+  filter: blur(3.5px);
+  height: 100%;
+}
+
+.signIp form label, input
+{
+  color: white;
+}
+
+.signForm
+{
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid #ffffff;
+  width: 100%;
+}
+
+.signbtn
+{
+  background-color: rgb(245, 112, 134);
+  color: white;
+  font-size: large;
+  font-weight: 600;
+}
