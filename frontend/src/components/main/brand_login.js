@@ -62,7 +62,7 @@ const BrandLogin = () => {
                 <div className="row g-0">
                   <div className="col-md-6 col-lg-5 d-none d-md-block">
                     <img
-                      src="/back_img.png"
+                      src="https://www.microbizmag.co.uk/wp-content/uploads/2021/03/Influencer_Marketing.jpg"
                       alt="login form"
                       className="img-fluid"
                       style={{ borderRadius: "1rem 0 0 1rem" }}

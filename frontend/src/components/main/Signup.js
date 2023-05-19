@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import React from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as Yup from 'yup';
 
@@ -55,7 +56,7 @@ const Signup = () => {
     <section
       className="bg-image"
     >
-      <img src="/images/signBg.jpeg" style={{ width:"100%"}}></img>
+      <img src="https://www.microbizmag.co.uk/wp-content/uploads/2021/03/Influencer_Marketing.jpg" style={{ width:"100%"}}></img>
       <div className="mask d-flex align-items-center gradient-custom-3 signIp">
         <div className="container h-auto">
           <div className="row d-flex justify-content-center align-items-center ">
@@ -133,16 +134,16 @@ const Signup = () => {
                       </label>
                     </div> }
                     <div className="d-flex justify-content-center">
-                      <button type="submit" className="btn btn-lg signbtn" disabled={signupForm.isSubmitting} >
+                      <button type="submit" Link to="/main/brandlogin" className="btn btn-lg signbtn" disabled={signupForm.isSubmitting} >
                         {signupForm.isSubmitting ? <span className="spinner-border spinner-border-sm"></span> : null}
                         &nbsp;&nbsp;SIGN UP
                       </button>
                     </div>
                     <p className="text-center  text-light mt-5 mb-0">
                       Have already an account?{" "}
-                      <a href="#!" className="fw-bold text-primary">
+                      <Link to="/main/login"  className="fw-bold text-primary">
                         <u>Login here</u>
-                      </a>
+                      </Link>
                     </p>
                   </form>
                 </div>

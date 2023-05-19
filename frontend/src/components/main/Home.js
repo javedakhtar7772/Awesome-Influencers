@@ -165,9 +165,9 @@ const Home = () => {
                 <div className="card-body">
 
                   <div className="img">
-                    <img className='d-block m-auto' src="/Images/img-2.jpg" alt="img" draggable="false" />
+                    <img className='d-block m-auto' src="/Images/DSC_8156 (2).jpg" alt="img" draggable="false" />
                   </div>
-                  <h2 className='text-center'>Joenas Brauers</h2>
+                  <h2 className='text-center'>Javed Akhtar</h2>
                   <p className='text-center'>Web Developer</p>
                 </div>
               </div>

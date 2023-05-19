@@ -164,7 +164,7 @@ const BrandSignup = () => {
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                       <img
                         src="
-                        /back_img2.webp"
+                        https://images.unsplash.com/photo-1529539795054-3c162aab037a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bG9naW58ZW58MHx8MHx8fDA%3D&w=1000&q=80"
                         className="img-fluid"
                         alt="Sample"
                       />
