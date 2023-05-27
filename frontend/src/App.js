@@ -17,6 +17,7 @@ import Enroll from "./components/user/Enroll";
 import Brand from "./components/brand";
 import ManageJobs from './components/brand/ManageJobs'
 import AddJob from "./components/brand/AddJob";
+import PublicInfluencerProfile from "./components/main/PublicInfluencerProfile";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
               <Route path="brandlogin" element={<BrandLogin />} />
               <Route path="brandsignup" element={<BrandSignup />} />
               <Route path="jobdetails/:jobid" element={<JobDetails />} />
+              <Route path="influencer/:id" element={<PublicInfluencerProfile />} />
               <Route path="browsejobs" element={<BrowseJobs />} />
             </Route>
 

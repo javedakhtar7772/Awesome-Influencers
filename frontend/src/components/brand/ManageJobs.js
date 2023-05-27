@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import app_config from "../../config";
 import AddJob from "./AddJob";
 import ManageEnrolledUsers from "./ManageEnrolledUsers";
@@ -66,10 +66,19 @@ const ManageJobs = () => {
 
   const displayApplicants = (job) => {
     if(job.enrolled.length){
-      return job.enrolled.map((enroll, index) => (
+      return job.enrolled.map((user, index) => (
         <div className="card">
           <div className="card-body">
-            <h2>applicant {index+1}</h2>
+            <p>Applicant {index+1} Details</p>
+            <hr />
+            <p className="fw-bold">Influencer Name : </p>
+            <span className="h5">{user.name}</span>
+            <p className="fw-bold">Facebook Followers : </p>
+            <span className="h5">{user.facebookFollowers}</span>
+
+            <NavLink to={'/main/influencer/'+user._id}>
+              View Profile
+            </NavLink>
             </div>
             </div>
       ))
