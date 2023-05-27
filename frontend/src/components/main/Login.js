@@ -1,11 +1,18 @@
 import { Formik } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { useUserContext } from '../../context/UserProvider'
+import app_config from '../../config'
 
 const Login = () => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const url = app_config.apiUrl;
+
+  const { loggedIn, setLoggedIn, logout } = useUserContext();
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   const loginSubmit = async (formdata, { resetForm, setSubmitting }) => {
     console.log(formdata)
@@ -29,6 +36,7 @@ const Login = () => {
       })
       const data = (await res.json());
       console.log(data);
+      setLoggedIn(true);
       sessionStorage.setItem('user', JSON.stringify(data.result));
 
       navigate('/main/browsejobs');

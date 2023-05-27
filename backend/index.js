@@ -3,6 +3,7 @@ const userRouter = require('./routers/userRouter');
 const brandRouter = require('./routers/brandRouter');
 const enrollMentRouter = require('./routers/enrollMentRouter');
 const jobRouter = require('./routers/jobRouter');
+const utilRouter = require('./routers/utils');
 
 
 const cors = require('cors');
@@ -25,6 +26,7 @@ app.use('/user', userRouter);
 app.use('/brand', brandRouter);   
 app.use('/job', jobRouter);   
 app.use('/enroll', enrollMentRouter);   
+app.use('/util', utilRouter);   
 
 app.get('/', (req, res) => {
     res.send('Working Fine');
@@ -33,6 +35,8 @@ app.get('/', (req, res) => {
 app.get('/add', (req, res) => {
     res.send('Add Request on Server');
 });
+
+app.use(express.static('./static/uploads'));
 
 // home
 // getall
