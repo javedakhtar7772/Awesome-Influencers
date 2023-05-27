@@ -56,7 +56,7 @@ const Signup = () => {
     <section
       className="bg-image"
     >
-      <img src="https://www.microbizmag.co.uk/wp-content/uploads/2021/03/Influencer_Marketing.jpg" style={{ width:"100%"}}></img>
+      <img src="https://i0.wp.com/blog.velocity.in/wp-content/uploads/2022/01/Blog-Cover-Image-4-Instagram-Influencer-01.jpg?fit=1024%2C768&ssl=1" style={{ width:"100%"}}></img>
       <div className="mask d-flex align-items-center gradient-custom-3 signIp">
         <div className="container h-auto">
           <div className="row d-flex justify-content-center align-items-center ">

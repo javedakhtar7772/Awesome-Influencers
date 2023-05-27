@@ -10,6 +10,7 @@ const myschema = new Schema({
     created_at: Date,
     instagramFollowers: { type: Number, default: 0 },
     facebookFollowers: { type: Number, default: 0 },
+    youtubeSubscribres: { type: Number, default: 0 },
 });
 
 module.exports = model('user', myschema);
