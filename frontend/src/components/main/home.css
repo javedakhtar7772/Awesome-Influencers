@@ -149,7 +149,7 @@ p{
     line-height: 22px;
     /* padding: 10px; */
 }
-.row{
+.myrow{
     display: flex;
     margin-top:12px;
     justify-content: space-between;

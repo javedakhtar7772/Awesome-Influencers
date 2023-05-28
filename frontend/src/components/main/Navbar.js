@@ -41,9 +41,9 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="dropdown-item" to="/user/mytemplates">
-                My Templates
-              </NavLink>
+            <NavLink className="dropdown-item" to="/user/userjobs">
+              My Campaigns
+            </NavLink>
             </li>
             <li>
               <hr className="dropdown-divider" />

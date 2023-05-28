@@ -25,8 +25,8 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className="dropdown-item" to="/user/mytemplates">
-              My Templates
+            <NavLink className="dropdown-item" to="/user/enroll">
+              My Campaigns
             </NavLink>
           </li>
           <li>

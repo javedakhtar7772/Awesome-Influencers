@@ -1,7 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import app_config from "../../config";
+import { useBrandContext } from "../../context/BrandProvider";
 
 const Navbar = () => {
+
+  const url = app_config.apiUrl;
+
+  const { loggedIn, setLoggedIn, logout } = useBrandContext();
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+
+  const showAvatar = () => {
+    if (loggedIn)
+      return (
+        <div className="dropdown">
+          <a
+            className="dropdown-toggle d-flex align-items-center hidden-arrow"
+            href="#"
+            id="navbarDropdownMenuAvatar"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {currentUser !== null && (
+              <img
+                src={
+                  currentUser.avatar
+                    ? `${url}/${currentUser.avatar}`
+                    : 'https://png.pngtree.com/png-clipart/20210915/ourlarge/pngtree-avatar-placeholder-abstract-white-blue-green-png-image_3918476.jpg'
+                }
+                className="rounded-circle"
+                height={30}
+              />
+            )}
+          </a>
+          <ul className="dropdown-menu">
+            <li>
+              <NavLink className="dropdown-item" to="/brand/profile">
+                Profile
+              </NavLink>
+            </li>
+            <li>
+            <NavLink className="dropdown-item" to="/brand/managejobs">
+              My Campaigns
+            </NavLink>
+            </li>
+            <li>
+              <hr className="dropdown-divider" />
+            </li>
+            <li>
+              <a className="dropdown-item" onClick={logout} type="button">
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      );
+  };
+
   return (
     <>
       {/* Navbar */}
@@ -73,90 +129,7 @@ const Navbar = () => {
               </ul>
               {/* Left links */}
             </div>
-            {/* Collapsible wrapper */}
-            {/* Right elements */}
-            <div className="d-flex align-items-center">
-              {/* Icon */}
-              {/* <a className="text-reset me-3" href="#">
-                <i className="fas fa-shopping-cart" />
-              </a> */}
-              {/* Notifications */}
-              <div className="dropdown">
-                {/* <a
-                  className="text-reset me-3 dropdown-toggle hidden-arrow"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i className="fas fa-bell" />
-                  <span className="badge rounded-pill badge-notification bg-danger">
-                    1
-                  </span>
-                </a> */}
-                <ul
-                  className="dropdown-menu dropdown-menu-end"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Some news
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Another news
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              {/* Avatar */}
-              <div className="dropdown">
-                <a
-                  className="dropdown-toggle d-flex align-items-center hidden-arrow"
-                  href="#"
-                  id="navbarDropdownMenuAvatar"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                    className="rounded-circle"
-                    height={25}
-                    alt="Black and White Portrait of a Man"
-                    loading="lazy"
-                  />
-                </a>
-                <ul
-                  className="dropdown-menu dropdown-menu-end"
-                  aria-labelledby="navbarDropdownMenuAvatar"
-                >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      My profile
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Logout
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            {/* Right elements */}
+            {showAvatar()}
           </div>
           {/* Container wrapper */}
         </nav>
