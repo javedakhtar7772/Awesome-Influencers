@@ -55,14 +55,14 @@ const BrandLogin = () => {
   return (
     <div className="login-container">
       <section className="vh-100" style={{ backgroundColor: themeColorLight }}>
-        <div className="container py-5 h-100">
+        <div className="container py-50 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col col-xl-10">
               <div className="card" style={{ borderRadius: "1rem" }}>
                 <div className="row g-0">
                   <div className="col-md-6 col-lg-5 d-none d-md-block">
                     <img
-                      src="https://www.microbizmag.co.uk/wp-content/uploads/2021/03/Influencer_Marketing.jpg"
+                      src="https://blog.cybba.com/hubfs/Featured%20Images%20Blog/4530890.jpg"
                       alt="login form"
                       className="img-fluid"
                       style={{ borderRadius: "1rem 0 0 1rem" }}
@@ -74,7 +74,7 @@ const BrandLogin = () => {
                         <div className="d-flex align-items-center mb-3 pb-1">
                           {/* <i
                       className="fas fa-cubes fa-2x me-3"
-                      style={{ color: "#ff6219" }}
+                      style={{ color: "#ff6219" }}    
                     /> */}
                           <img
                             className="d-block mt-3"
