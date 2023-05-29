@@ -95,26 +95,7 @@ const Navbar = () => {
                     Home
                   </NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/main/signup">
-                    Signup
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/main/login">
-                    Login
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/main/brandsignup">
-                    Brand Signup
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/main/brandlogin">
-                    Brand Login
-                  </NavLink>
-                </li>
+                
               </ul>
               {/* Left links */}
             </div>
