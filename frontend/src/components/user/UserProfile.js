@@ -12,7 +12,9 @@ const UserProfile = () => {
 
   const [fb, setFb] = useState(currentUser.facebookFollowers);
   const [insta, setInsta] = useState(currentUser.instagramFollowers);
-  const [youtube, setYoutube] = useState(currentUser.youtubeSubscribes);
+  const [youtube, setYoutube] = useState(currentUser.youtubeSubscribres);
+
+  const [fbLink, setFbLink] = useState('');
 
   const updateProfile = async (data) => {
     console.log(data);
@@ -208,14 +210,14 @@ const UserProfile = () => {
                   </div>
                   <div className="card-body">
                     <div className="input-group">
-                      <input type="text" value={youtube} className='form-control' onChange={e => setYoutube(e.target.value)} />
-                      <button className='btn btn-primary' onClick={e => updateProfile({ youtubeSubscribes: youtube })}>
-                        <i class="fas fa-pen"></i>
-                      </button>
                     </div>
                   </div>
                 </div>
               </div>
+                      <input type="text" value={fbLink} className='form-control' onChange={e => setFbLink(e.target.value)} />
+                      <button className='btn btn-primary' onClick={e => updateProfile({ facebookLink: fbLink })}>
+                        <i class="fas fa-pen"></i>
+                      </button>
               {/* </div> */}
             </div>
           </div>

@@ -96,7 +96,7 @@ const JobDetails = () => {
   };
 
   const checkEligible = () => {
-    
+      return jobDetails.requirements.facebook <= currentUser.facebookFollowers && jobDetails.requirements.instagram <= currentUser.instagramFollowers && jobDetails.requirements.youtube <= currentUser.youtubeSubscribres;
   }
 
   const processEnrollment = () => {
@@ -120,9 +120,11 @@ const JobDetails = () => {
             </label>
           </div>
 
-          <button className="btn btn-primary" onClick={enrollToJob}>
+          <button className="btn btn-primary" onClick={enrollToJob} disabled={!checkEligible()}>
             Enroll Now
           </button>
+
+          {checkEligible() ? null : <p className="text-danger">You are not eligible for this job</p>}
         </>
       );
     } else {
@@ -163,6 +165,8 @@ const JobDetails = () => {
               <hr className="mb-3" />
               <p className="text-muted small fw-bold m-0">Requirements</p>
               <p className="fw-bold m-0">Facebook Followers : {jobDetails.requirements.facebook}</p>
+              <p className="fw-bold m-0">youtube Followers : {jobDetails.requirements.youtube}</p>
+              <p className="fw-bold m-0">instagram Followers : {jobDetails.requirements.instagram}</p>
             </div>
             {processEnrollment()}
           </div>

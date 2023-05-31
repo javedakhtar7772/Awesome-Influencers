@@ -95,6 +95,19 @@ router.put("/update/:id", (req, res) => {
     });
 });
 
+router.put("/addproof/:id", (req, res) => {
+  
+  Model.findByIdAndUpdate(req.params.id, {$push : req.body}, { new: true })
+    .then((result) => {
+      console.log("User Data Updated");
+      res.status(200).json({ status: "success", result });
+    })
+    .catch((err) => {
+      console.error("Error updating user data", err);
+      res.status(500).send("Error updating user data");
+    });
+});
+
 router.get("/getbyuser/:id", (req, res) => {
   Model.find({user : req.params.id}).populate('job')
     .then((result) => {

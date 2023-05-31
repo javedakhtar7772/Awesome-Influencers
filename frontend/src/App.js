@@ -28,6 +28,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+      
         <UserProvider currentUser={currentUser}>
           <BrandProvider>
             <Routes>

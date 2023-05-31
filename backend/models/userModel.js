@@ -11,6 +11,7 @@ const myschema = new Schema({
     instagramFollowers: { type: Number, default: 0 },
     facebookFollowers: { type: Number, default: 0 },
     youtubeSubscribres: { type: Number, default: 0 },
+    facebookLink: String,
 });
 
 module.exports = model('user', myschema);

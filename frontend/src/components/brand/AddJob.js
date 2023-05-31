@@ -33,6 +33,7 @@ const AddJob = ({ refreshData }) => {
     onSubmit: async (values) => {
       values.requirements = requirements;
       console.log(values);
+      // return;
       const res = await fetch(`${apiUrl}/job/add`, {
         method: "POST",
         body: JSON.stringify(values),
@@ -61,7 +62,9 @@ const AddJob = ({ refreshData }) => {
   });
 
   const updateReq = (key, value) => {
-    setRequirements({requirements, ...{key : value}});
+    let temp = {};
+    temp[key] = parseInt(value);
+    setRequirements({...requirements, ...temp});
   }
 
   return (

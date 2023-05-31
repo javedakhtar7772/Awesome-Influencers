@@ -171,9 +171,9 @@ const ManageJobs = () => {
                     @Programmer <span className="mx-2">|</span> <a href="#!">mdbootstrap.com</a>
                   </p>
                   <div className="mb-4 pb-2">
-                    <button type="button" className="btn btn-outline-primary btn-floating">
+                    <a type="button" className="btn btn-outline-primary btn-floating" href={selUser.facebookLink} target='_blank'>
                       <i className="fab fa-facebook-f fa-lg" />
-                    </button>
+                    </a>
                     <button type="button" className="btn btn-outline-primary btn-floating">
                       <i className="fab fa-twitter fa-lg" />
                     </button>
@@ -190,11 +190,11 @@ const ManageJobs = () => {
                       <p className="text-muted mb-0">Facebook Followers</p>
                     </div>
                     <div className="px-3">
-                      <p className="mb-2 h5">8512</p>
+                      <p className="mb-2 h5">{selUser.instagramFollowers}</p>
                       <p className="text-muted mb-0">Instagram Followers</p>
                     </div>
                     <div>
-                      <p className="mb-2 h5">4751</p>
+                      <p className="mb-2 h5">{selUser.youtubeSubscribres}</p>
                       <p className="text-muted mb-0">Youtube subscribers</p>
                     </div>
                   </div>
