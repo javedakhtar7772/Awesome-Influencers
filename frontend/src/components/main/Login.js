@@ -11,7 +11,7 @@ const Login = () => {
 
   const url = app_config.apiUrl;
 
-  const { loggedIn, setLoggedIn, logout } = useUserContext();
+  const { loggedIn, setLoggedIn, logout, setAvatar } = useUserContext();
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   const loginSubmit = async (formdata, { resetForm, setSubmitting }) => {
@@ -38,6 +38,7 @@ const Login = () => {
       console.log(data);
       setLoggedIn(true);
       sessionStorage.setItem('user', JSON.stringify(data.result));
+      setAvatar(data.avatar)
 
       navigate('/main/browsejobs');
     }

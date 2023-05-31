@@ -46,7 +46,7 @@ function App() {
 
               <Route path="user" element={<User />}>
                 <Route path="userprofile" element={<UserProfile />} />
-                <Route path="enroll" element={<Enroll />} />
+                <Route path="enroll/:jobid" element={<Enroll />} />
                 <Route path="userjobs" element={<UserCampaigns />} />
               </Route>
 

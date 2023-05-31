@@ -11,7 +11,7 @@ const UserProfile = () => {
   const [passwordHidden, setPasswordHidden] = useState(true);
 
   const [fb, setFb] = useState(currentUser.facebookFollowers);
-  const [insta, setInsta] = useState(currentUser.facebookFollowers);
+  const [insta, setInsta] = useState(currentUser.instagramFollowers);
   const [youtube, setYoutube] = useState(currentUser.youtubeSubscribes);
 
   const updateProfile = async (data) => {
@@ -158,64 +158,65 @@ const UserProfile = () => {
                 </form>
               </div>
             </div>
-
-            <div className="row">
+            <div className="row d-flex">
+              {/* <div className="row"> */}
               <div className="col-md-4 mt-4">
                 <div className="card">
                   <div className="card-header">
-                    
-                    <img style={{height: 30}} src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png" alt="" />
+
+                    <img style={{ height: 30 }} src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png" alt="" />
                     <span>Facebook Followers</span>
                   </div>
                   <div className="card-body">
                     <div className="input-group">
-                    <input type="text" value={fb} className='form-control' onChange={e => setFb(e.target.value)} />
-                        <button className='btn btn-primary' onClick={e => updateProfile({facebookFollowers: fb})}>
-                          <i class="fas fa-pen"></i>
-                        </button>
+                      <input type="text" value={fb} className='form-control' onChange={e => setFb(e.target.value)} />
+                      <button className='btn btn-primary' onClick={e => updateProfile({ facebookFollowers: fb })}>
+                        <i class="fas fa-pen"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="row">
+              {/* </div> */}
+              {/* <div className="row"> */}
               <div className="col-md-4 mt-4">
                 <div className="card">
                   <div className="card-header">
-                    
-                    <img style={{height: 30}} src="https://w7.pngwing.com/pngs/477/609/png-transparent-logo-computer-icons-instagram-logo-instagram-logo-miscellaneous-text-trademark.png" alt="" />
+
+                    <img style={{ height: 30 }} src="https://w7.pngwing.com/pngs/477/609/png-transparent-logo-computer-icons-instagram-logo-instagram-logo-miscellaneous-text-trademark.png" alt="" />
                     <span>Instagram Followers</span>
                   </div>
                   <div className="card-body">
                     <div className="input-group">
-                    <input type="text" value={insta} className='form-control' onChange={e => setInsta(e.target.value)} />
-                        <button className='btn btn-primary' onClick={e => updateProfile({instagramFollowers: insta})}>
-                          <i class="fas fa-pen"></i>
-                        </button>
+                      <input type="text" value={insta} className='form-control' onChange={e => setInsta(e.target.value)} />
+                      <button className='btn btn-primary' onClick={e => updateProfile({ instagramFollowers: insta })}>
+                        <i class="fas fa-pen"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+              {/* </div> */}
 
-            <div className="row">
+              {/* <div className="row"> */}
               <div className="col-md-4 mt-4">
                 <div className="card">
                   <div className="card-header">
-                    
-                    <img style={{height: 30}} src="https://w7.pngwing.com/pngs/1009/93/png-transparent-youtube-computer-icons-logo-youtube-angle-social-media-share-icon.png" alt="" />
+
+                    <img style={{ height: 30 }} src="https://w7.pngwing.com/pngs/1009/93/png-transparent-youtube-computer-icons-logo-youtube-angle-social-media-share-icon.png" alt="" />
                     <span>Youtube subscribers</span>
                   </div>
                   <div className="card-body">
                     <div className="input-group">
-                    <input type="text" value={youtube} className='form-control' onChange={e => setYoutube(e.target.value)} />
-                        <button className='btn btn-primary' onClick={e => updateProfile({youtubeSubscribes: youtube})}>
-                          <i class="fas fa-pen"></i>
-                        </button>
+                      <input type="text" value={youtube} className='form-control' onChange={e => setYoutube(e.target.value)} />
+                      <button className='btn btn-primary' onClick={e => updateProfile({ youtubeSubscribes: youtube })}>
+                        <i class="fas fa-pen"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
+              {/* </div> */}
             </div>
           </div>
         </div>

@@ -69,6 +69,14 @@ const ManageJobs = () => {
             <p className="fw-bold">Facebook Followers : </p>
             <span className="h5">{user.facebookFollowers}</span>
 
+            <p className="fw-bold">Instagram Followers : </p>
+            <span className="h5">{user.facebookFollowers}</span>
+
+            <p className="fw-bold">FYoutube subscribers : </p>
+            <span className="h5">{user.facebookFollowers}</span>
+
+
+
             <button data-mdb-toggle="modal" data-mdb-target="#exampleModal" className="btn btn-primary" onClick={(e) => setSelUser(user)}>
               View Profile
             </button>
@@ -183,11 +191,11 @@ const ManageJobs = () => {
                     </div>
                     <div className="px-3">
                       <p className="mb-2 h5">8512</p>
-                      <p className="text-muted mb-0">Income amounts</p>
+                      <p className="text-muted mb-0">Instagram Followers</p>
                     </div>
                     <div>
                       <p className="mb-2 h5">4751</p>
-                      <p className="text-muted mb-0">Total Transactions</p>
+                      <p className="text-muted mb-0">Youtube subscribers</p>
                     </div>
                   </div>
                 </div>

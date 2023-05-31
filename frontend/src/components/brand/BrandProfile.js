@@ -11,7 +11,7 @@ const BrandProfile = () => {
   const [passwordHidden, setPasswordHidden] = useState(true);
 
   const [fb, setFb] = useState(currentBrand.facebookFollowers);
-  const [insta, setInsta] = useState(currentBrand.facebookFollowers);
+  const [insta, setInsta] = useState(currentBrand.InstagramFollowers);
   const [youtube, setYoutube] = useState(currentBrand.youtubeSubscribes);
 
   const updateProfile = async (data) => {

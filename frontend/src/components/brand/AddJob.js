@@ -5,9 +5,17 @@ import Swal from "sweetalert2";
 import app_config from "../../config";
 
 const AddJob = ({ refreshData }) => {
+
+  const [requirements, setRequirements] = useState({
+    facebook: 0,
+    instagram: 0,
+    youtube: 0
+  })
+
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("brand"))
   );
+
   const { apiUrl } = app_config;
   const jobForm = useFormik({
     initialValues: {
@@ -23,6 +31,7 @@ const AddJob = ({ refreshData }) => {
       updated_at: new Date(),
     },
     onSubmit: async (values) => {
+      values.requirements = requirements;
       console.log(values);
       const res = await fetch(`${apiUrl}/job/add`, {
         method: "POST",
@@ -50,6 +59,10 @@ const AddJob = ({ refreshData }) => {
       }
     },
   });
+
+  const updateReq = (key, value) => {
+    setRequirements({requirements, ...{key : value}});
+  }
 
   return (
     <div>
@@ -107,6 +120,38 @@ const AddJob = ({ refreshData }) => {
                 onChange={jobForm.handleChange}
                 value={jobForm.values.incentive}
               />
+
+              <h4>Requiements</h4>
+              <hr />
+              <div className="row">
+                <div className="col-md-4">
+                <label htmlFor="incentive">Facebook Followers</label>
+              <input
+                type="number"
+                className="form-control mb-3"
+                onChange={e => updateReq('facebook', e.target.value)}
+                value={requirements.facebook}
+              />
+                </div>
+                <div className="col-md-4">
+                <label htmlFor="incentive">instagram Followers</label>
+              <input
+                type="number"
+                className="form-control mb-3"
+                onChange={e => updateReq('instagram', e.target.value)}
+                value={requirements.instagram}
+              />
+                </div>
+                <div className="col-md-4">
+                <label htmlFor="incentive">youtube Followers</label>
+              <input
+                type="number"
+                className="form-control mb-3"
+                onChange={e => updateReq('youtube', e.target.value)}
+                value={requirements.youtube}
+              />
+                </div>
+              </div>
 
               <button type="submit" className="btn btn-primary">
                 Submit

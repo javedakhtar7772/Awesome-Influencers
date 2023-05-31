@@ -32,7 +32,7 @@ const Enroll = () => {
   }, []);
 
   const displayJobDetails = () => {
-    if (loading) {
+    if (loading || jobDetails ===null) {
       return (
         <div className="text-center">
           <div className="spinner-border" role="status">

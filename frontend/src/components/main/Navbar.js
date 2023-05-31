@@ -7,7 +7,7 @@ const Navbar = () => {
   const { title, themeColor } = app_config;
   const url = app_config.apiUrl;
 
-  const { loggedIn, setLoggedIn, logout } = useUserContext();
+  const { loggedIn, setLoggedIn, logout, avatar } = useUserContext();
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   const showAvatar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
               <img
                 src={
                   currentUser.avatar
-                    ? `${url}/${currentUser.avatar}`
+                    ? `${url}/${avatar}`
                     : 'https://png.pngtree.com/png-clipart/20210915/ourlarge/pngtree-avatar-placeholder-abstract-white-blue-green-png-image_3918476.jpg'
                 }
                 className="rounded-circle"
@@ -41,9 +41,9 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-            <NavLink className="dropdown-item" to="/user/userjobs">
-              My Campaigns
-            </NavLink>
+              <NavLink className="dropdown-item" to="/user/userjobs">
+                My Campaigns
+              </NavLink>
             </li>
             <li>
               <hr className="dropdown-divider" />

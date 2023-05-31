@@ -95,6 +95,10 @@ const JobDetails = () => {
     }
   };
 
+  const checkEligible = () => {
+    
+  }
+
   const processEnrollment = () => {
     if (currentUser !== null) {
       return isUserEnrolled() ? (
@@ -156,6 +160,9 @@ const JobDetails = () => {
               <hr className="mb-3" />
               <p className="text-muted small fw-bold m-0">Payment Details</p>
               <p className="fw-bold m-0">Incentive : {jobDetails.incentive}</p>
+              <hr className="mb-3" />
+              <p className="text-muted small fw-bold m-0">Requirements</p>
+              <p className="fw-bold m-0">Facebook Followers : {jobDetails.requirements.facebook}</p>
             </div>
             {processEnrollment()}
           </div>
