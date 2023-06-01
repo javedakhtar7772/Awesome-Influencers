@@ -5,6 +5,7 @@ const schema = new Schema({
   title: { type: String, required: true },
   incentive: { type: Number, required: true },
   description: { type: Object },
+  image : {type: String, default: 'campaign_placeholder.png'},
   type: { type: String },
   data: { type: Object },
   startDate: { type: Date },

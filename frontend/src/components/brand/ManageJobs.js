@@ -75,8 +75,6 @@ const ManageJobs = () => {
             <p className="fw-bold">FYoutube subscribers : </p>
             <span className="h5">{user.facebookFollowers}</span>
 
-
-
             <button data-mdb-toggle="modal" data-mdb-target="#exampleModal" className="btn btn-primary" onClick={(e) => setSelUser(user)}>
               View Profile
             </button>
@@ -145,6 +143,50 @@ const ManageJobs = () => {
     }
   };
 
+  const displayJobCardsActive = () => {
+    return (
+      <div className="row mt-4">
+        {jobList
+          .filter((job) => new Date(job.endDate) <= new Date())
+          .map((job) => (
+            <div className="col-md-3 mb-4">
+              <div className="card">
+                <img className='card-img-top' src={apiUrl+'/'+job.image} alt="" />
+                <div className="card-body">
+                  <h5>{job.title.slice(0, 20)}...</h5>
+                  <p className='fw-bold m-0'>Added On</p>
+                  <h5>{new Date(job.created_at).toLocaleDateString()}</h5>
+                  <button className='btn btn-danger float-end' onClick={(e) => setSelJob(job._id)}> View Details</button>
+                </div>
+              </div>
+            </div>
+          ))}
+      </div>
+    );
+  };
+
+  const displayJobCardsExpired = () => {
+    return (
+      <div className="row mt-4">
+        {jobList
+          .filter((job) => new Date(job.endDate) > new Date())
+          .map((job) => (
+            <div className="col-md-3 mb-4">
+              <div className="card">
+                <img className='card-img-top' src={apiUrl+'/'+job.image} alt="" />
+                <div className="card-body">
+                  <h5>{job.title.slice(0, 20)}...</h5>
+                  <p className='fw-bold m-0'>Added On</p>
+                  <h5>{new Date(job.created_at).toLocaleDateString()}</h5>
+                  <button className='btn btn-danger float-end' onClick={(e) => setSelJob(job._id)}> View Details</button>
+                </div>
+              </div>
+            </div>
+          ))}
+      </div>
+    );
+  };
+
   return (
     <div style={{ backgroundColor: themeColorLight, minHeight: '100vh' }}>
       <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -157,52 +199,52 @@ const ManageJobs = () => {
               <button type="button" className="btn-close" data-mdb-dismiss="modal" aria-label="Close" />
             </div>
             <div className="modal-body">
-
               {/* influencer card */}
-              {
-                selUser && (
-                  <div className="card" style={{ borderRadius: 15 }}>
-                <div className="card-body text-center">
-                  <div className="mt-3 mb-4">
-                    <img src={selUser.avatar? apiUrl+'/'+selUser.avatar : "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"} className="rounded-circle img-fluid" style={{ width: 100 }} />
-                  </div>
-                  <h4 className="mb-2">{selUser.name}</h4>
-                  <p className="text-muted mb-4">
-                    @Programmer <span className="mx-2">|</span> <a href="#!">mdbootstrap.com</a>
-                  </p>
-                  <div className="mb-4 pb-2">
-                    <a type="button" className="btn btn-outline-primary btn-floating" href={selUser.facebookLink} target='_blank'>
-                      <i className="fab fa-facebook-f fa-lg" />
-                    </a>
-                    <button type="button" className="btn btn-outline-primary btn-floating">
-                      <i className="fab fa-twitter fa-lg" />
-                    </button>
-                    <button type="button" className="btn btn-outline-primary btn-floating">
-                      <i className="fab fa-skype fa-lg" />
-                    </button>
-                  </div>
-                  <button type="button" className="btn btn-primary btn-rounded btn-lg">
-                    Message now
-                  </button>
-                  <div className="d-flex justify-content-between text-center mt-5 mb-2">
-                    <div>
-                      <p className="mb-2 h5">{selUser.facebookFollowers}</p>
-                      <p className="text-muted mb-0">Facebook Followers</p>
+              {selUser && (
+                <div className="card" style={{ borderRadius: 15 }}>
+                  <div className="card-body text-center">
+                    <div className="mt-3 mb-4">
+                      <img
+                        src={selUser.avatar ? apiUrl + '/' + selUser.avatar : 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp'}
+                        className="rounded-circle img-fluid"
+                        style={{ width: 100 }}
+                      />
                     </div>
-                    <div className="px-3">
-                      <p className="mb-2 h5">{selUser.instagramFollowers}</p>
-                      <p className="text-muted mb-0">Instagram Followers</p>
+                    <h4 className="mb-2">{selUser.name}</h4>
+                    <p className="text-muted mb-4">
+                      @Programmer <span className="mx-2">|</span> <a href="#!">mdbootstrap.com</a>
+                    </p>
+                    <div className="mb-4 pb-2">
+                      <a type="button" className="btn btn-outline-primary btn-floating" href={selUser.facebookLink} target="_blank">
+                        <i className="fab fa-facebook-f fa-lg" />
+                      </a>
+                      <button type="button" className="btn btn-outline-primary btn-floating">
+                        <i className="fab fa-twitter fa-lg" />
+                      </button>
+                      <button type="button" className="btn btn-outline-primary btn-floating">
+                        <i className="fab fa-skype fa-lg" />
+                      </button>
                     </div>
-                    <div>
-                      <p className="mb-2 h5">{selUser.youtubeSubscribres}</p>
-                      <p className="text-muted mb-0">Youtube subscribers</p>
+                    <button type="button" className="btn btn-primary btn-rounded btn-lg">
+                      Message now
+                    </button>
+                    <div className="d-flex justify-content-between text-center mt-5 mb-2">
+                      <div>
+                        <p className="mb-2 h5">{selUser.facebookFollowers}</p>
+                        <p className="text-muted mb-0">Facebook Followers</p>
+                      </div>
+                      <div className="px-3">
+                        <p className="mb-2 h5">{selUser.instagramFollowers}</p>
+                        <p className="text-muted mb-0">Instagram Followers</p>
+                      </div>
+                      <div>
+                        <p className="mb-2 h5">{selUser.youtubeSubscribres}</p>
+                        <p className="text-muted mb-0">Youtube subscribers</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-                )
-              }
-              
+              )}
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-mdb-dismiss="modal">
@@ -240,10 +282,8 @@ const ManageJobs = () => {
         <h1 className="display-4">Manage Jobs</h1>
         <hr />
         <div className="row">
-          <div className="col-md-2">
-            <button type="button" className="btn btn-success btn-lg my-3 w-100" data-mdb-toggle="modal" data-mdb-target="#jobModal">
-              <i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Job
-            </button>
+          {/* <div className="col-md-2">
+            
             <div className="card mt-2">
               <div className="card-header">
                 <h3>Active Campaigns</h3>
@@ -280,8 +320,16 @@ const ManageJobs = () => {
                 )}
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="col-md-10">
+          <button type="button" className="btn btn-success btn-lg my-3 w-100" data-mdb-toggle="modal" data-mdb-target="#jobModal">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Job
+            </button>
+            <h3 className='mt-3'>Active Task Campaigns</h3>
+            <div className="p-5">{displayJobCardsActive()}</div>
+
+            <h3 className='mt-3'>Expired Task Campaigns</h3>
+            <div className="p-5">{displayJobCardsExpired()}</div>
             <div className="p-5">{displaySelJob()}</div>
           </div>
         </div>

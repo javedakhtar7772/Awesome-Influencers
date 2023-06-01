@@ -31,8 +31,8 @@ const BrandSignup = () => {
           title: "Success",
           text: "User Registered Successfully!!",
         });
-        const data = (await res.json()).result;
-        navigate("/brand/auth");
+        // const data = (await res.json()).result;
+        navigate("/brand/login");
       } else {
         Swal.fire({
           icon: "error",

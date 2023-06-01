@@ -12,6 +12,8 @@ const AddJob = ({ refreshData }) => {
     youtube: 0
   })
 
+  const [selImage, setSelImage] = useState(null);
+
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("brand"))
   );
@@ -32,6 +34,7 @@ const AddJob = ({ refreshData }) => {
     },
     onSubmit: async (values) => {
       values.requirements = requirements;
+      values.image = selImage;
       console.log(values);
       // return;
       const res = await fetch(`${apiUrl}/job/add`, {
@@ -67,12 +70,30 @@ const AddJob = ({ refreshData }) => {
     setRequirements({...requirements, ...temp});
   }
 
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("myfile", file);
+    const res = await fetch(`${apiUrl}/util/uploadfile`, {
+      method: "POST",
+      body: formData,
+    });
+    console.log(res.status);
+    if (res.status === 200) {
+      console.log("Image Uploaded");
+      setSelImage(file.name);
+    }
+  }
+
   return (
     <div>
       <div className="card">
         <div className="card-body">
           <form onSubmit={jobForm.handleSubmit}>
             <div className="form-group">
+              <label htmlFor="cover" className="btn btn-outline-primary"> <i class="fa fa-upload" aria-hidden="true"></i> Upload Image</label>
+              <input onChange={uploadImage} type="file" id="cover" hidden />
+              <br />
               <label htmlFor="title">Title</label>
               <input
                 type="text"
