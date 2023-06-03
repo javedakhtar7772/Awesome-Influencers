@@ -185,6 +185,7 @@ const UserProfile = () => {
                 <div className="card">
                   <div className="card-header">
 
+                    
                     <img style={{ height: 30 }} src="https://w7.pngwing.com/pngs/477/609/png-transparent-logo-computer-icons-instagram-logo-instagram-logo-miscellaneous-text-trademark.png" alt="" />
                     <span>Instagram Followers</span>
                   </div>
