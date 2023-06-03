@@ -60,29 +60,17 @@ const ManageJobs = () => {
   const displayApplicants = (job) => {
     if (job.enrolled.length) {
       return job.enrolled.map((user, index) => (
-        <ul className='list-group'>
-          <li className='list-group-item'>{user.name}</li>
-        </ul>
-        <div className="card">
-          <div className="card-body">
-            <p>Applicant {index + 1} Details</p>
-            <hr />
-            <p className="fw-bold">Influencer Name : </p>
-            <span className="h5">{user.name}</span>
-            {/* <p className="fw-bold">Facebook Followers : </p>
-            <span className="h5">{user.facebookFollowers}</span>
-
-            <p className="fw-bold">Instagram Followers : </p>
-            <span className="h5">{user.facebookFollowers}</span>
-
-            <p className="fw-bold">Youtube Subscriber : </p>
-            <span className="h5">{user.facebookFollowers}</span> */}
-
-            <button data-mdb-toggle="modal" data-mdb-target="#exampleModal" className="btn btn-primary" onClick={(e) => setSelUser(user)}>
-              View Profile
-            </button>
-          </div>
-        </div>
+        <>
+          <ul className='list-group'>
+            <li className='list-group-item d-flex align-items-center justify-content-between'>
+              <p className='h5'>{user.name}</p>
+              <div><button data-mdb-toggle="modal" data-mdb-target="#exampleModal" className="btn btn-primary" onClick={(e) => setSelUser(user)}>
+                View Profile
+              </button></div>
+            </li>
+          </ul>
+          
+        </>
       ));
     } else {
       return (
@@ -154,7 +142,7 @@ const ManageJobs = () => {
           .map((job) => (
             <div className="col-md-3 mb-4">
               <div className="card">
-                <img className='card-img-top' src={apiUrl+'/'+job.image} alt="" />
+                <img className='card-img-top' src={apiUrl + '/' + job.image} alt="" />
                 <div className="card-body">
                   <h5>{job.title.slice(0, 20)}...</h5>
                   <p className='fw-bold m-0'>Added On</p>
@@ -176,7 +164,7 @@ const ManageJobs = () => {
           .map((job) => (
             <div className="col-md-3 mb-4">
               <div className="card">
-                <img className='card-img-top' src={apiUrl+'/'+job.image} alt="" />
+                <img className='card-img-top' src={apiUrl + '/' + job.image} alt="" />
                 <div className="card-body">
                   <h5>{job.title.slice(0, 20)}...</h5>
                   <p className='fw-bold m-0'>Added On</p>
@@ -229,9 +217,19 @@ const ManageJobs = () => {
                       </button>
                     </div>
                     <div>
+                      <p className="mb-2 h5">{selUser.instagramFollowers}</p>
+                      <p className="text-muted mb-0">Instagram Followers</p>
+                    </div>
+                    <div>
+                      <p className="mb-2 h5">{selUser.facebookFollowers}</p>
+                      <p className="text-muted mb-0">Facebook Followers</p>
+                    </div>
+                    <div>
                       <p className="mb-2 h5">{selUser.youtubeSubscribres}</p>
                       <p className="text-muted mb-0">Youtube Subscriber</p>
                     </div>
+                    
+                    
                   </div>
                 </div>
               )}
@@ -312,7 +310,7 @@ const ManageJobs = () => {
             </div>
           </div> */}
           <div className="col-md-10">
-          <button type="button" className="btn btn-success btn-lg my-3 w-100" data-mdb-toggle="modal" data-mdb-target="#jobModal">
+            <button type="button" className="btn btn-success btn-lg my-3 w-100" data-mdb-toggle="modal" data-mdb-target="#jobModal">
               <i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Job
             </button>
             <h3 className='mt-3'>Active Task Campaigns</h3>
