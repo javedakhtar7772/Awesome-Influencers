@@ -210,14 +210,15 @@ const UserProfile = () => {
                   </div>
                   <div className="card-body">
                     <div className="input-group">
-                    </div>
-                  </div>
-                </div>
-              </div>
                       <input type="text" value={fbLink} className='form-control' onChange={e => setFbLink(e.target.value)} />
                       <button className='btn btn-primary' onClick={e => updateProfile({ facebookLink: fbLink })}>
                         <i class="fas fa-pen"></i>
                       </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                      
               {/* </div> */}
             </div>
           </div>
