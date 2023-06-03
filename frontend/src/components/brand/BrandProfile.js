@@ -12,7 +12,7 @@ const BrandProfile = () => {
 
   const [fb, setFb] = useState(currentBrand.facebookFollowers);
   const [insta, setInsta] = useState(currentBrand.InstagramFollowers);
-  const [youtube, setYoutube] = useState(currentBrand.youtubeSubscribes);
+  const [youtube, setYoutube] = useState(currentBrand.youtubeSubscriber);
 
   const updateProfile = async (data) => {
     console.log(data);
@@ -204,12 +204,12 @@ const BrandProfile = () => {
                   <div className="card-header">
                     
                     <img style={{height: 30}} src="https://w7.pngwing.com/pngs/1009/93/png-transparent-youtube-computer-icons-logo-youtube-angle-social-media-share-icon.png" alt="" />
-                    <span>Youtube subscribers</span>
+                    <span>Youtube Subscriber</span>
                   </div>
                   <div className="card-body">
                     <div className="input-group">
                     <input type="text" value={youtube} className='form-control' onChange={e => setYoutube(e.target.value)} />
-                        <button className='btn btn-primary' onClick={e => updateProfile({youtubeSubscribes: youtube})}>
+                        <button className='btn btn-primary' onClick={e => updateProfile({youtubeSubscriber: youtube})}>
                           <i class="fas fa-pen"></i>
                         </button>
                     </div>

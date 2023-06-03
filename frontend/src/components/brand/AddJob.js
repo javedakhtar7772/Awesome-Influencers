@@ -146,7 +146,7 @@ const AddJob = ({ refreshData }) => {
               />
                 </div>
                 <div className="col-md-4">
-                <label htmlFor="incentive">youtube Followers</label>
+                <label htmlFor="incentive">youtube Subscriber</label>
               <input
                 type="number"
                 className="form-control mb-3"

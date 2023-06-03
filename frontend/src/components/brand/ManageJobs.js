@@ -72,7 +72,7 @@ const ManageJobs = () => {
             <p className="fw-bold">Instagram Followers : </p>
             <span className="h5">{user.facebookFollowers}</span>
 
-            <p className="fw-bold">FYoutube subscribers : </p>
+            <p className="fw-bold">Youtube Subscriber : </p>
             <span className="h5">{user.facebookFollowers}</span>
 
 
@@ -195,7 +195,7 @@ const ManageJobs = () => {
                     </div>
                     <div>
                       <p className="mb-2 h5">{selUser.youtubeSubscribres}</p>
-                      <p className="text-muted mb-0">Youtube subscribers</p>
+                      <p className="text-muted mb-0">Youtube Subscriber</p>
                     </div>
                   </div>
                 </div>
