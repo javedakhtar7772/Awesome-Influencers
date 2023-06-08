@@ -124,7 +124,7 @@ const Login = () => {
                             type="submit"
                             className="btn btn-primary btn-lg"
                           >
-                            Register
+                            log in
                           </button>
                         </div>
                         <p className="text-center text-muted mt-5 mb-0">
