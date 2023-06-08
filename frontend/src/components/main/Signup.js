@@ -1,120 +1,186 @@
-import { useFormik } from 'formik';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import * as Yup from 'yup';
-
-const SignupSchema = Yup.object().shape({
-  name: Yup.string().min(2, 'Too Short!').max(10, 'Too Long!').required('Name is Required'),
-  email: Yup.string().email('Invalid email').required('Email is Required'),
-  password: Yup.string().required('Password is Required')
-});
+import { useFormik } from "formik";
+import React from "react";
+import app_config from "../../config";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Signup = () => {
-  const signupForm = useFormik({
+  const url = app_config.apiUrl;
+  const { themeColor, themeColorLight } = app_config;
+  const navigate = useNavigate();
+
+  const signupform = useFormik({
     initialValues: {
-      name: '',
-      email: '',
-      password: '',
-      cpassword: ''
+      name: "",
+      email: "",
+      password: "",
     },
-
-    onSubmit: async (values, { setSubmitting, resetForm }) => {
-      setSubmitting(true);
-      // setTimeout(() => {
+    onSubmit: async (values) => {
       console.log(values);
-
-      const res = await fetch('http://localhost:5000/user/add', {
-        method: 'POST',
+      const res = await fetch(`${url}/brand/add`, {
+        method: "POST",
         body: JSON.stringify(values),
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-
       console.log(res.status);
-
       if (res.status === 201) {
         Swal.fire({
-          icon: 'success',
-          title: 'Success',
-          text: 'User Registered Successfully'
+          icon: "success",
+          title: "Success",
+          text: "User Registered Successfully!!",
+        });
+        // const data = (await res.json()).result;
+        navigate("/brand/login");
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Some Error Occured!!",
         });
       }
-
-      setSubmitting(false);
-
-      resetForm();
-      // },3000);
     },
-    validationSchema: SignupSchema
   });
 
   return (
-    <section className="bg-image">
-      <img src="https://i0.wp.com/blog.velocity.in/wp-content/uploads/2022/01/Blog-Cover-Image-4-Instagram-Influencer-01.jpg?fit=1024%2C768&ssl=1" style={{ width: '100%' }}></img>
-      <div className="mask d-flex align-items-center gradient-custom-3 signIp">
-        <div className="container h-auto">
-          <div className="row d-flex justify-content-center align-items-center ">
-            <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-              <div className="card signForm">
-                <div className="card-body p-5">
-                  <h2 className="text-uppercase text-center mb-5 text-light fw-bold">Sign up</h2>
-                  <form onSubmit={signupForm.handleSubmit} className="signFormm">
-                    <div className=" mb-4">
-                      <label className="form-label" htmlFor="form3Example1cg">
-                        Your Name
-                      </label>
-                      <input type="text" id="name" className="form-control form-control-lg" onChange={signupForm.handleChange} value={signupForm.values.name} />
-                    </div>
-                    <div className=" mb-4">
-                      <label className="form-label" htmlFor="form3Example3cg">
-                        Your Email
-                      </label>
-                      <input type="email" id="email" className="form-control form-control-lg" onChange={signupForm.handleChange} value={signupForm.values.email} />
-                    </div>
-                    <div className=" mb-4">
-                      <label className="form-label" htmlFor="form3Example4cg">
-                        Password
-                      </label>
-                      <input type="password" id="password" className="form-control form-control-lg" onChange={signupForm.handleChange} value={signupForm.values.password} />
-                    </div>
-                    <div className=" mb-4">
-                      <label className="form-label" htmlFor="form3Example4cdg">
-                        Repeat your password
-                      </label>
-
-                      <input type="password" id="cpassword" className="form-control form-control-lg" onChange={signupForm.handleChange} value={signupForm.values.cpassword} />
-                    </div>
-                    {
-                      <div className="form-check d-flex justify-content-center mb-5">
-                        <input className="form-check-input me-2" type="checkbox" defaultValue="" />
-                        <label className="form-check-label" htmlFor="form2Example3g">
-                          I agree all statements in{' '}
-                          <a href="#!" className="text-primary">
-                            <u>Terms of service</u>
-                          </a>
-                        </label>
-                      </div>
-                    }
-                    <div className="d-flex justify-content-center">
-                      <button type="submit" Link to="/main/brandlogin" className="btn btn-lg signbtn" disabled={signupForm.isSubmitting}>
-                        {signupForm.isSubmitting ? <span className="spinner-border spinner-border-sm"></span> : null}
-                        &nbsp;&nbsp;SIGN UP
-                      </button>
-                    </div>
-                    <p className="text-center  text-light mt-5 mb-0">
-                      Have already an account?{' '}
-                      <Link to="/main/login" className="fw-bold text-primary">
+    <div style={{backgroundImage: 
+      "url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+             height:'100vh',
+             backgroundSize: 'cover',
+             backgroundRepeat: 'no-repeat',}}>
+      <section className="vh-100">
+        <div className="container h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col-lg-12 col-xl-11">
+              <div className="card text-black" style={{ borderRadius: 25 }}>
+                <div className="card-body p-md-5">
+                  <div className="row justify-content-center">
+                    <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                      <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                        Sign up
+                      </p>
+                      <form
+                        className="mx-1 mx-md-4"
+                        onSubmit={signupform.handleSubmit}
+                      >
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <i className="fas fa-user fa-lg me-3 fa-fw" />
+                          <div className="flex-fill mb-0">
+                            <label
+                              className="form-label"
+                              htmlFor="form3Example1c"
+                            >
+                              Your Name
+                            </label>
+                            <input
+                              type="text"
+                              id="name"
+                              onChange={signupform.handleChange}
+                              value={signupform.values.name}
+                              className="form-control"
+                            />
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <i className="fas fa-envelope fa-lg me-3 fa-fw" />
+                          <div className=" flex-fill mb-0">
+                            <label
+                              className="form-label"
+                              htmlFor="form3Example3c"
+                            >
+                              Your Email
+                            </label>
+                            <input
+                              type="email"
+                              id="email"
+                              onChange={signupform.handleChange}
+                              value={signupform.values.email}
+                              className="form-control"
+                            />
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <i className="fas fa-lock fa-lg me-3 fa-fw" />
+                          <div className=" flex-fill mb-0">
+                            <label
+                              className="form-label"
+                              htmlFor="form3Example4c"
+                            >
+                              Password
+                            </label>
+                            <input
+                              type="password"
+                              id="password"
+                              onChange={signupform.handleChange}
+                              value={signupform.values.password}
+                              className="form-control"
+                            />
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <i className="fas fa-key fa-lg me-3 fa-fw" />
+                          <div className="flex-fill mb-0">
+                            <label
+                              className="form-label"
+                              htmlFor="form3Example4cd"
+                            >
+                              Repeat your password
+                            </label>
+                            <input
+                              type="password"
+                              id="form3Example4cd"
+                              className="form-control"
+                            />
+                          </div>
+                        </div>
+                        <div className="form-check d-flex justify-content-center mb-5">
+                          <input
+                            className="form-check-input me-2"
+                            type="checkbox"
+                            defaultValue=""
+                            id="form2Example3c"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="form2Example3"
+                          >
+                            I agree all statements in{" "}
+                            <a href="#!">Terms of service</a>
+                          </label>
+                        </div>
+                        <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                          <button
+                            type="submit"
+                            className="btn btn-primary btn-lg"
+                          >
+                            Register
+                          </button>
+                        </div>
+                        <p className="text-center text-muted mt-5 mb-0">
+                      Have already an account?{" "}
+                      <Link to="/main/Login" className="fw-bold text-body">
                         <u>Login here</u>
                       </Link>
                     </p>
-                  </form>
+                      </form>
+                    </div>
+                    <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                      <img
+                        src="
+                        https://images.pexels.com/photos/8296973/pexels-photo-8296973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        className="img-fluid"
+                        alt="Sample"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

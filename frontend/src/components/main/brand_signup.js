@@ -44,7 +44,11 @@ const BrandSignup = () => {
   });
 
   return (
-    <div style={{ backgroundColor: themeColorLight }}>
+    <div style={{backgroundImage: 
+      "url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+             height:'100vh',
+             backgroundSize: 'cover',
+             backgroundRepeat: 'no-repeat',}}>
       <section className="vh-100">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -164,7 +168,7 @@ const BrandSignup = () => {
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                       <img
                         src="
-                        https://images.unsplash.com/photo-1529539795054-3c162aab037a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bG9naW58ZW58MHx8MHx8fDA%3D&w=1000&q=80"
+                        https://images.pexels.com/photos/8296973/pexels-photo-8296973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         className="img-fluid"
                         alt="Sample"
                       />
