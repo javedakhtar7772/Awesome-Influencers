@@ -18,7 +18,7 @@ const Login = () => {
     },
     onSubmit: async (values) => {
       console.log(values);
-      const res = await fetch(`${url}/brand/add`, {
+      const res = await fetch(`${url}/user/auth`, {
         method: "POST",
         body: JSON.stringify(values),
         headers: {
@@ -26,14 +26,14 @@ const Login = () => {
         },
       });
       console.log(res.status);
-      if (res.status === 201) {
+      if (res.status === 200) {
         Swal.fire({
           icon: "success",
           title: "Success",
           text: "User Registered Successfully!!",
         });
         // const data = (await res.json()).result;
-        navigate("/brand/login");
+        navigate("/user/login");
       } else {
         Swal.fire({
           icon: "error",
