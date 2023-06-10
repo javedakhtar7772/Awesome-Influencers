@@ -30,14 +30,6 @@ router.post("/auth", (req, res) => {
       res.status(502).json({ status: "failed" });
     });
 
-  // .then((result) => {
-  //   console.log("User Data Saved");
-  //   res.status(201).json({ status: "success", result });
-  // })
-  // .catch((err) => {
-  //   console.error("Error saving user data", err);
-  //   res.status(500).send("Error saving user data");
-  // });
 });
 
 router.get("/getall", (req, res) => {

@@ -12,7 +12,6 @@ const Login = () => {
 
   const signupform = useFormik({
     initialValues: {
-      name: "",
       email: "",
       password: "",
     },
@@ -30,10 +29,17 @@ const Login = () => {
         Swal.fire({
           icon: "success",
           title: "Success",
-          text: "User Registered Successfully!!",
+          text: "User Loggedin Successfully!!",
         });
-        // const data = (await res.json()).result;
-        navigate("/user/login");
+        const data = (await res.json()).result;
+        sessionStorage.setItem("user", JSON.stringify(data));
+        navigate("/main/browsejobs");
+      }else if(res.status === 401){
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Email or Password is incorrect!!",
+        });
       } else {
         Swal.fire({
           icon: "error",

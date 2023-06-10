@@ -12,13 +12,12 @@ const BrandLogin = () => {
 
   const signupform = useFormik({
     initialValues: {
-      name: "",
       email: "",
       password: "",
     },
     onSubmit: async (values) => {
       console.log(values);
-      const res = await fetch(`${url}/brand/add`, {
+      const res = await fetch(`${url}/brand/auth`, {
         method: "POST",
         body: JSON.stringify(values),
         headers: {
@@ -30,10 +29,17 @@ const BrandLogin = () => {
         Swal.fire({
           icon: "success",
           title: "Success",
-          text: "User Registered Successfully!!",
+          text: "Successfully Loggedin!!",
         });
-        // const data = (await res.json()).result;
-        navigate("/brand/login");
+        const data = (await res.json()).result;
+        sessionStorage.setItem('brand', JSON.stringify(data));
+        navigate("/brand/managejob");
+      }else if(res.status === 401){
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Email or password is incorrect",
+        });
       } else {
         Swal.fire({
           icon: "error",
