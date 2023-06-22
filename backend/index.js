@@ -8,20 +8,13 @@ const utilRouter = require('./routers/utils');
 
 const cors = require('cors');
 
-
-
-
 const app = express();
 const port = 5000;
-
-
-
 
 // to allow client to make request
 app.use( cors({ origin: 'http://localhost:3000' }) )
 
 app.use(express.json());
-
 app.use('/user', userRouter);   
 app.use('/brand', brandRouter);   
 app.use('/job', jobRouter);   
