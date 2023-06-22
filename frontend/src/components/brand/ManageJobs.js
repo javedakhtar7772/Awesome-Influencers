@@ -138,7 +138,7 @@ const ManageJobs = () => {
     return (
       <div className="row mt-4">
         {jobList
-          .filter((job) => new Date(job.endDate) <= new Date())
+          .filter((job) => new Date(job.endDate) >= new Date())
           .map((job) => (
             <div className="col-md-3 mb-4">
               <div className="card">
@@ -160,7 +160,7 @@ const ManageJobs = () => {
     return (
       <div className="row mt-4">
         {jobList
-          .filter((job) => new Date(job.endDate) > new Date())
+          .filter((job) => new Date(job.endDate) < new Date())
           .map((job) => (
             <div className="col-md-3 mb-4">
               <div className="card">
