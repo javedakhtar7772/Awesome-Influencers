@@ -32,7 +32,7 @@ const BrandSignup = () => {
           text: "User Registered Successfully!!",
         });
         // const data = (await res.json()).result;
-        navigate("/brand/login");
+        navigate("/main/brandlogin");
       } else {
         Swal.fire({
           icon: "error",
