@@ -203,7 +203,7 @@ const ManageJobs = () => {
                     </div>
                     <h4 className="mb-2">{selUser.name}</h4>
                     <p className="text-muted mb-4">
-                      @Programmer <span className="mx-2">|</span> <a href="#!">mdbootstrap.com</a>
+                      Influencer <span className="mx-2"></span>
                     </p>
                     <div className="mb-4 pb-2">
                       <a type="button" className="btn btn-outline-primary btn-floating" href={selUser.facebookLink} target="_blank">
