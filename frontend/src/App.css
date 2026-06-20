@@ -1,0 +1,42 @@
+
+
+.bg-image 
+{
+  height: 130vh;
+
+
+}
+
+.bg-image img
+{
+  filter: blur(3.5px);
+  height: 100%;
+}
+
+.signIp form label, input
+{
+  color: white;
+}
+
+.signForm
+{
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid #ffffff;
+  width: 100%;
+}
+
+.signbtn
+{
+  background-color: rgb(245, 112, 134);
+  color: white;
+  font-size: large;
+  font-weight: 600;
+}
+
+
+.page-header{
+  background-image: linear-gradient(to left, rgb(255, 241, 241), rgb(255, 130, 130));
+  /* padding: 0 100px; */
+  /* height: 300px; */
+}
