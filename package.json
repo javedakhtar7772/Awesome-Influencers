@@ -1,0 +1,12 @@
+{
+  "homepage": "https://javedakhtar7772.github.io/Awesome-Influencers",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
